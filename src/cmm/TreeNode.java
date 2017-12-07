@@ -59,7 +59,6 @@ public class TreeNode {
     public String toString() {
         return "TreeNode{" +
                 "value='" + value + '\'' +
-                ", childs=" + childs +
                 '}';
     }
 }

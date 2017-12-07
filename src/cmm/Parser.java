@@ -42,6 +42,7 @@ public class Parser {
 
         process(parsingTree);
 
+
         if (pointer != tokens.size()){
             System.out.println("Cannot parse! Please check grammar.");
             return -1;
