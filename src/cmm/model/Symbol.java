@@ -17,7 +17,10 @@ public class Symbol {
         this.lineNo = lineNo;
         this.position = position;
         this.arrayLength = arrayLength;
-        value = new ArrayList<>(arrayLength);
+        if (arrayLength == 0)
+            value = new ArrayList<>(1);
+        else
+            value = new ArrayList<>(arrayLength);
     }
 
     public String getType() {
@@ -52,11 +55,11 @@ public class Symbol {
         this.position = position;
     }
 
-    public int getIsArray() {
+    public int getArrayLength() {
         return arrayLength;
     }
 
-    public void setIsArray(int isArray) {
+    public void setArrayLength(int isArray) {
         this.arrayLength = isArray;
     }
 
