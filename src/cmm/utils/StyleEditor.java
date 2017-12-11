@@ -16,7 +16,7 @@ public class StyleEditor extends JTextPane implements DocumentListener {
 
 	private int caretStartPosiont = 0;
 
-//	private CodeStyle codeStyle = new CodeStyle();
+	private CodeStyle codeStyle = new CodeStyle();
 
 	private StyleContext context = new StyleContext();
 
@@ -97,7 +97,7 @@ public class StyleEditor extends JTextPane implements DocumentListener {
 		FontMetrics fm = textPane.getFontMetrics(textPane.getFont());
 		int charWidth = fm.charWidth('w');
 		int tabWidth = charWidth * charactersPerTab;
-//		codeStyle.setCharWidth(charWidth);
+		codeStyle.setCharWidth(charWidth);
 		TabStop[] tabs = new TabStop[1000];
 
 		for (int j = 0; j < tabs.length; j++) {
@@ -125,7 +125,7 @@ public class StyleEditor extends JTextPane implements DocumentListener {
 
 	public void paint(Graphics g) {
 		super.paint(g);
-//		codeStyle.drawWaveLine(g);
+		codeStyle.drawWaveLine(g);
 	}
 
 	public void setSize(Dimension d) {
@@ -141,7 +141,7 @@ public class StyleEditor extends JTextPane implements DocumentListener {
 		StyledDocument nDoc = new DefaultStyledDocument(context);
 		try {
 			String text = oDoc.getText(0, oDoc.getLength());
-//			codeStyle.markStyle(text, nDoc, cmmCompiler);
+			codeStyle.markStyle(text, nDoc, cmmCompiler);
 
 			oDoc.removeDocumentListener(this);
 			nDoc.addDocumentListener(this);
