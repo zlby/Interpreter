@@ -26,7 +26,24 @@ public class Semantic {
     }
 
     private static void visitStmt(TreeNode node){
-
+        switch (node.getChild(0).getName()){
+            case "VarDecl":
+                visitVarDecl(node.getChild(0));
+            case "IfStmt":
+                visitIfStmt(node.getChild(0));
+            case "WhileStmt":
+                visitWhileStmt(node.getChild(0));
+            case "BreakStmt":
+                visitBreakStmt(node.getChild(0));
+            case "AssignStmt":
+                visitAssignStmt(node.getChild(0));
+            case "ReadStmt":
+                visitReadStmt(node.getChild(0));
+            case "WriteStmt":
+                visitWriteStmt(node.getChild(0));
+            case "StmtBlock":
+                visitStmtBlock(node.getChild(0));
+        }
     }
 
     private static void visitStmts(TreeNode node){
@@ -52,7 +69,7 @@ public class Semantic {
             return null;
         else {
             for (TreeNode child : childs)
-                res.add(child.getValue());
+                res.add(child.getName());
         }
         return null;
     }
@@ -78,7 +95,13 @@ public class Semantic {
     }
 
     private static void visitWhileStmt(TreeNode node){
+        TreeNode childWhile = node.getChild(0);
+        TreeNode childExpr = node.getChild(1);
+        TreeNode childStmt = node.getChild(2);
 
+        while (!childExpr.getToken().getValue().equals("0")){
+            visitStmt(childStmt);
+        }
     }
 
     private static void visitBreakStmt(TreeNode node){
@@ -113,7 +136,9 @@ public class Semantic {
 
     }
 
-    private static void visitExprTemp(TreeNode node){
+
+
+    private static void  visitStmtBlock(TreeNode node) {
 
     }
 
