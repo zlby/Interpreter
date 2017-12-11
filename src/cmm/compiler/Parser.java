@@ -1,11 +1,13 @@
-package cmm;
+package cmm.compiler;
+
+import cmm.model.Token;
+import cmm.model.TreeNode;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Stack;
 
 public class Parser {
     private static HashMap<String, ArrayList<ArrayList<String>>> grammar = Grammar.getGrammar();

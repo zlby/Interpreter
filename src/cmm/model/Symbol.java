@@ -1,4 +1,4 @@
-package cmm;
+package cmm.model;
 
 import java.util.ArrayList;
 

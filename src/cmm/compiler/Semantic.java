@@ -1,4 +1,7 @@
-package cmm;
+package cmm.compiler;
+
+import cmm.model.Symbol;
+import cmm.model.TreeNode;
 
 import java.util.ArrayList;
 import java.util.HashMap;

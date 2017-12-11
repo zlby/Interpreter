@@ -1,4 +1,4 @@
-package cmm;
+package cmm.compiler;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -1,4 +1,4 @@
-package cmm;
+package cmm.compiler;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package cmm;
+package cmm.model;
 
 public class Token {
     private String flag;

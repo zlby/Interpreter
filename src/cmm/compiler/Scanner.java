@@ -1,4 +1,6 @@
-package cmm;
+package cmm.compiler;
+
+import cmm.model.Token;
 
 import java.io.*;
 import java.util.ArrayList;
