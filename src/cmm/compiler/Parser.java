@@ -70,9 +70,9 @@ public class Parser {
     public static void process(TreeNode target){
         if (pointer == tokens.size())
             return;
-        if (grammar.containsKey(target.getValue())){
+        if (grammar.containsKey(target.getName())){
             boolean canmatch = false;
-            ArrayList<ArrayList<String>> productionList = grammar.get(target.getValue());
+            ArrayList<ArrayList<String>> productionList = grammar.get(target.getName());
             //choose X0 -> X1 X2 X3...Xk
             for (int i = 0; i < productionList.size(); i++){
                 ArrayList<String> temp = new ArrayList<>(productionList.get(i));
@@ -86,14 +86,15 @@ public class Parser {
                 ArrayList<TreeNode> childs = target.getChilds();
                 for (int iter = 0; iter < childs.size(); iter++){
                     TreeNode child = childs.get(iter);
-                    if (grammar.containsKey(child.getValue())){
+                    if (grammar.containsKey(child.getName())){
                         process(child);
                     }
                     else {
-                        if (judge(child.getValue())){
+                        if (judge(child.getName())){
+                            child.setToken(tokens.get(pointer));
                             pointer++;
                         }
-                        else if (child.getValue().equals("null")){
+                        else if (child.getName().equals("null")){
                             ;
                         }
                         else {

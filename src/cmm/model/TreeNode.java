@@ -3,22 +3,32 @@ package cmm.model;
 import java.util.ArrayList;
 
 public class TreeNode {
-    private String value;
+    private String name;
     private ArrayList<TreeNode> childs;
     private TreeNode parent;
+    private Token token;
 
-    public TreeNode(String value, TreeNode parent){
-        this.value = value;
+    public TreeNode(String name, TreeNode parent){
+        this.name = name;
         this.parent = parent;
+        this.token = null;
         childs = new ArrayList<>();
     }
 
-    public String getValue() {
-        return value;
+    public String getName() {
+        return name;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Token getToken() {
+        return token;
+    }
+
+    public void setToken(Token token) {
+        this.token = token;
     }
 
     public ArrayList<TreeNode> getChilds() {
@@ -58,7 +68,8 @@ public class TreeNode {
     @Override
     public String toString() {
         return "TreeNode{" +
-                "value='" + value + '\'' +
+                "name='" + name + '\'' +
+                "token=" + token +
                 '}';
     }
 }
