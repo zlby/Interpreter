@@ -16,7 +16,7 @@ public class Parser {
     private static ArrayList<Token> tokens = new ArrayList<>();
     private static int pointer;
 
-    public static int doParsing(String filename){
+    public static TreeNode doParsing(String filename){
         pointer = 0;
         parsingTree = new TreeNode("Program", null);
         String strinput = "";
@@ -24,7 +24,7 @@ public class Parser {
             strinput = Scanner.readInput(filename);
         }catch (FileNotFoundException e){
             System.err.println("Cannot find file");
-            return -1;
+            return null;
         }
         ArrayList<Token> tokensTemp = new ArrayList<>(Scanner.inputAnalyse(strinput));
         boolean isRight = true;
@@ -39,32 +39,34 @@ public class Parser {
         }
         if (!isRight){
             System.out.println("Please check tokens.");
-            return -1;
+            return null;
         }
 
         process(parsingTree);
 
+        return parsingTree;
 
-        if (pointer != tokens.size()){
-            System.out.println("Cannot parse! Please check grammar.");
-            return -1;
-        }
 
-        DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode(parsingTree);
-        copyTree(parsingTree, rootNode);
-
-        final JTree tree = new JTree(rootNode);
-        JScrollPane jScrollPane = new JScrollPane();
-        jScrollPane.getViewport().add(tree, null);
-        jScrollPane.setVisible(true);
-
-        JFrame jFrame = new JFrame("ParsingTree");
-        jFrame.add(jScrollPane);
-        jFrame.setSize(300, 300);
-        jFrame.setVisible(true);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        return 0;
+//        if (pointer != tokens.size()){
+//            System.out.println("Cannot parse! Please check grammar.");
+//            return -1;
+//        }
+//
+//        DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode(parsingTree);
+//        copyTree(parsingTree, rootNode);
+//
+//        final JTree tree = new JTree(rootNode);
+//        JScrollPane jScrollPane = new JScrollPane();
+//        jScrollPane.getViewport().add(tree, null);
+//        jScrollPane.setVisible(true);
+//
+//        JFrame jFrame = new JFrame("ParsingTree");
+//        jFrame.add(jScrollPane);
+//        jFrame.setSize(300, 300);
+//        jFrame.setVisible(true);
+//        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//
+//        return 0;
     }
 
     public static void process(TreeNode target){

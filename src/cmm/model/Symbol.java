@@ -75,6 +75,10 @@ public class Symbol {
         this.value = value;
     }
 
+    public ArrayList<String> getValue() {
+        return value;
+    }
+
     public void initValue(String value){
         if (this.value.size() != 0)
             this.value.clear();

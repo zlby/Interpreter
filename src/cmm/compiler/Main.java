@@ -9,6 +9,7 @@ public class Main {
 //        else {
 //            Parser.doParsing(args[0]);
 //        }
+        Semantic.semanticAnalyze("TestCases/test.cmm");
 
     }
 }
