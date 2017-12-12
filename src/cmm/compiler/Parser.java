@@ -113,7 +113,13 @@ public class Parser {
                 }
             }
             if (!canmatch){
-                target.getParent().resetNode();
+                try {
+                    target.getParent().resetNode();
+                }catch (NullPointerException e){
+                    System.out.println("Grammar error at line: " + tokens.get(pointer).getLineNo() + ", pos: " + tokens.get(pointer).getPosition() +  " \n" +
+                            "token: " + tokens.get(pointer).getValue());
+                }
+
             }
         }
         else {

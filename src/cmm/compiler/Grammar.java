@@ -253,16 +253,6 @@ public class Grammar {
 
         all = new ArrayList<>();
         one = new ArrayList<>();
-        one.add("+");
-        one.add("Expr");
-        one.add("ExprTemp");
-        all.add(one);
-        one = new ArrayList<>();
-        one.add("-");
-        one.add("Expr");
-        one.add("ExprTemp");
-        all.add(one);
-        one = new ArrayList<>();
         one.add("*");
         one.add("Expr");
         one.add("ExprTemp");
@@ -274,6 +264,16 @@ public class Grammar {
         all.add(one);
         one = new ArrayList<>();
         one.add("%");
+        one.add("Expr");
+        one.add("ExprTemp");
+        all.add(one);
+        one = new ArrayList<>();
+        one.add("+");
+        one.add("Expr");
+        one.add("ExprTemp");
+        all.add(one);
+        one = new ArrayList<>();
+        one.add("-");
         one.add("Expr");
         one.add("ExprTemp");
         all.add(one);
