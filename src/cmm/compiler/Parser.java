@@ -44,28 +44,30 @@ public class Parser {
 
         process(parsingTree);
 
+        if (pointer != tokens.size()){
+            System.out.println("Cannot parse! Please check grammar.");
+            return null;
+        }
+
+        DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode(parsingTree);
+        copyTree(parsingTree, rootNode);
+
+        final JTree tree = new JTree(rootNode);
+        JScrollPane jScrollPane = new JScrollPane();
+        jScrollPane.getViewport().add(tree, null);
+        jScrollPane.setVisible(true);
+
+        JFrame jFrame = new JFrame("ParsingTree");
+        jFrame.add(jScrollPane);
+        jFrame.setSize(300, 300);
+        jFrame.setVisible(true);
+        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+
         return parsingTree;
 
 
-//        if (pointer != tokens.size()){
-//            System.out.println("Cannot parse! Please check grammar.");
-//            return -1;
-//        }
-//
-//        DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode(parsingTree);
-//        copyTree(parsingTree, rootNode);
-//
-//        final JTree tree = new JTree(rootNode);
-//        JScrollPane jScrollPane = new JScrollPane();
-//        jScrollPane.getViewport().add(tree, null);
-//        jScrollPane.setVisible(true);
-//
-//        JFrame jFrame = new JFrame("ParsingTree");
-//        jFrame.add(jScrollPane);
-//        jFrame.setSize(300, 300);
-//        jFrame.setVisible(true);
-//        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//
+
 //        return 0;
     }
 

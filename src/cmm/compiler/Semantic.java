@@ -37,27 +37,36 @@ public class Semantic {
         switch (node.getChild(0).getName()){
             case "VarDecl":
                 visitVarDecl(node.getChild(0));
+                break;
             case "IfStmt":
                 visitIfStmt(node.getChild(0));
+                break;
             case "WhileStmt":
                 visitWhileStmt(node.getChild(0));
+                break;
             case "BreakStmt":
                 visitBreakStmt(node.getChild(0));
+                break;
             case "AssignStmt":
                 visitAssignStmt(node.getChild(0));
+                break;
             case "ReadStmt":
                 visitReadStmt(node.getChild(0));
+                break;
             case "WriteStmt":
                 visitWriteStmt(node.getChild(0));
+                break;
             case "StmtBlock":
+                symbolTables.push(new HashMap<String, Symbol>());
                 visitStmtBlock(node.getChild(0));
+                symbolTables.pop();
         }
     }
 
     private static void visitStmts(TreeNode node){
         if(node.getChild(0) != null){
-            visitStmt(node.getChild(1));
-            visitStmts(node.getChild(2));
+            visitStmt(node.getChild(0));
+            visitStmts(node.getChild(1));
         }else{
             return;
         }
