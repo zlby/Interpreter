@@ -164,22 +164,22 @@ public class Semantic {
     }
 
     private static ArrayList<Token> visitIdentList(TreeNode node){
-        if(node.getChild(0).getToken().getValue().equals(",")){
-            ArrayList<Token> arr = new ArrayList<>();
-            ArrayList<Token> arr1 = new ArrayList<>();
-            arr.add(node.getParent().getChild(0).getToken());
-            arr.add(node.getChild(0).getToken());
-            arr.add(node.getChild(1).getToken());
-            arr1 = visitIdentList(node.getChild(2));
-            arr.addAll(arr1);
-            return arr;
-        }else if(node.getChild(0) == null && node.getParent().getChild(0) != null){
-            return null;
-        }else{
+//        if(node.getChild(0).getToken().getValue().equals(",")){
+//            ArrayList<Token> arr = new ArrayList<>();
+//            ArrayList<Token> arr1 = new ArrayList<>();
+//            arr.add(node.getParent().getChild(0).getToken());
+//            arr.add(node.getChild(0).getToken());
+//            arr.add(node.getChild(1).getToken());
+//            arr1 = visitIdentList(node.getChild(2));
+//            arr.addAll(arr1);
+//            return arr;
+//        }else if(node.getChild(0) == null && node.getParent().getChild(0).getToken().getFlag().equals("ident")){
             ArrayList<Token> arr = new ArrayList<>();
             arr.add(node.getParent().getChild(0).getToken());
             return arr;
-        }
+//        }else{
+//            return null;
+//        }
     }
 
     private static void visitIfStmt(TreeNode node){
